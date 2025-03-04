@@ -336,16 +336,6 @@ int main(){
         f=f->next;
     }
     struct client* head=create_CLIENTLL_from_file();//read clients LL from file
-/*   struct client* g=head;
-    while (g!=NULL)
-    {
-        if(g->client_books!=NULL){
-        printf("%s,%s,%d",g->name,g->client_books->bookname,g->books_number);}
-        else{
-            printf("%s,%d",g->name,g->books_number);
-        }
-        g=g->next;
-    }*/
     printf("enter your name:");
     fgets(name, sizeof(name), stdin);
     name[strcspn(name, "\n")] = 0;
