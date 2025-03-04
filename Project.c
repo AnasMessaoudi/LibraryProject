@@ -34,7 +34,7 @@ struct QNode* createqueue(char* s){
     temp->next=NULL;
     return temp;
 }
-void push_client_to_queue(struct queue* q,char* s){
+void push_client_to_queue(struct queue* q,char* s){//function to add clients to the books queue
     struct QNode* temp=createqueue(s);
     if(q->rear==NULL){
         q->front=temp;
@@ -46,7 +46,7 @@ void push_client_to_queue(struct queue* q,char* s){
     }
     printf("Mr %s you have been added to the book's queue we will inform you when the book is available !!",temp->client_name);
 }
-void pop_client_from_queue(struct queue* q){
+void pop_client_from_queue(struct queue* q){//function to delete clients to the books queue
     if(q->front==NULL || q->rear==NULL){
         return;
     }
@@ -58,7 +58,7 @@ void pop_client_from_queue(struct queue* q){
     printf("Mr %s you have been removed from the book's queue !",oldfront->client_name);
     free(oldfront);
 }
-void add_clientToFile(char* name){
+void add_clientToFile(char* name){//function to add clients to the file that contains clients names
     FILE* file=fopen("zaboun.txt", "a");
     if (file == NULL) {
         printf("Error opening file for creation.");
@@ -68,7 +68,7 @@ void add_clientToFile(char* name){
     fclose(file);
     printf("\nYour name has been added to the borrow list successfully !!");
 }
-bool search_clientInFile(char* name){
+bool search_clientInFile(char* name){//check if the client is in the file or not
     FILE* file=fopen("zaboun.txt","r");
     if (file == NULL) {
         printf("Error opening file for creation.\n");
@@ -90,7 +90,7 @@ bool search_clientInFile(char* name){
     return found;
 }
 }
-void deleting_book_from_client_data(struct client* temp,char* s){
+void deleting_book_from_client_data(struct client* temp,char* s){//delete the book from client LL
     struct book* book_to_remove=temp->client_books;
     struct book* prev_book = NULL;
     while(book_to_remove!=NULL && strcmp(book_to_remove->bookname,s)!=0){
@@ -192,7 +192,7 @@ struct AllBooks* fill_books_in_LL(struct AllBooks* head){
     temp->next=NULL;
     return head;
 }
-struct book* add_book_to_client_data(struct client* temp,char* s){
+struct book* add_book_to_client_data(struct client* temp,char* s){//add the book to client LL
     struct book* booktoadd=(struct book*)malloc(sizeof(struct book));
     strcpy(booktoadd->bookname,s);
     booktoadd->next=NULL;
@@ -208,7 +208,7 @@ struct book* add_book_to_client_data(struct client* temp,char* s){
 }
 return temp->client_books;
 }
-void put_clients_data_in_file(struct client* temp){
+void put_clients_data_in_file(struct client* temp){//add the clients new data to the file 
     FILE* file=fopen("C:\\Users\\anesm\\OneDrive\\Desktop\\Progs\\C progs\\C learning\\zaboun_data.txt","a");
     if (file == NULL) {
         printf("Error1 opening file for creation.\n");
