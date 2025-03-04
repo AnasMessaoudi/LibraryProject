@@ -385,7 +385,7 @@ int main(){
                     BOOK->availability=false;
                     temp->books_number+=1;
                     temp->client_books=add_book_to_client_data(temp,bookname);
-                    put_clients_data_in_file(temp);
+                    put_clients_data_in_file(temp);//add new data to clients data file
                     modify_book_data_in_file(firstbook);
                 }
                 else{
@@ -420,7 +420,7 @@ int main(){
             printf("enter the name of the book that you want to give back:");
             scanf("%s",bookname);
             temp->books_number=temp->books_number-1;
-            //function to modify clients
+            //need a function to modify clients
             struct AllBooks* BOOK=search_book_in_LL(firstbook,bookname);
             if(BOOK->clients_queue.front!=NULL){
                 char waiter[256];
