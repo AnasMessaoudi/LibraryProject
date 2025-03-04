@@ -419,14 +419,14 @@ int main(){
             }
             deleting_book_from_client_data(temp,bookname);
             struct client* c=head;
-            while (c!=NULL)
+            /*while (c!=NULL)
             {
                 if(c->client_books!=NULL)printf("%s,%s,%d",c->name,c->client_books->bookname,c->books_number);
                 else{
                     printf("%s,%d",c->name,c->books_number);
                 }
                 c=c->next;
-            }
+            }*/
             // i need to add functions to make changes in the book data file and to modify client data and not add new client with the same name and different data
         }
     }
